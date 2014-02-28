@@ -49,4 +49,28 @@ function mirva_portfolio_post_type () {
 	register_post_type( 'mirva_portfolio', $args );
 }
 
+// Custom Portfolio Columns
+add_filter('manage_edit-mirva_portfolio_columns', 'mirva_add_new_columns');
+add_action('manage_posts_custom_column', 'mirva_manage_columns', 10, 2);
+function mirva_add_new_columns($portfolio_columns) {
+	$new_columns['cb'] = '<input type="checkbox" />';
+    $new_columns['artworkimages'] = __('Thumbnail', 'mirva');
+	$new_columns['title'] = __('Title', 'mirva');
+	$new_columns['author'] = __('Artist', 'mirva');
+	$new_columns['date'] = _x('Date', 'column name');
+	return $new_columns;
+}
+
+function mirva_manage_columns($column_name, $id) {
+	global $wpdb;
+	switch ($column_name) {
+    case 'artworkimages':
+        if( function_exists('the_post_thumbnail') )
+            echo the_post_thumbnail( 'admin-list-thumb' );
+        else
+            echo __('Not supported in this theme', 'mirva' );
+        break;
+    }
+}
+
 ?>
