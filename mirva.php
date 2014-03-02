@@ -73,4 +73,9 @@ function mirva_manage_columns($column_name, $id) {
     }
 }
 
+// Load all the widgets
+foreach ( glob( plugin_dir_path( __FILE__ )."widgets/*.php" ) as $widget )
+    include_once $widget;
+
+
 ?>
