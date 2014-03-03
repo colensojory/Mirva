@@ -45,12 +45,10 @@ class mirva_latest_widget extends WP_Widget {
     }
     
     function update($new_instance, $old_instance) {
-          $instance = $old_instance;
-          // Fields
-          $instance['title'] = strip_tags($new_instance['title']);
-          $instance['text'] = strip_tags($new_instance['text']);
-          $instance['textarea'] = strip_tags($new_instance['textarea']);
-         return $instance;
+        $instance = $old_instance;
+         // Fields
+        $instance['title'] = strip_tags($new_instance['title']);
+        return $instance;
     }
     
     
