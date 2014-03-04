@@ -8,6 +8,13 @@
     Author URI: http://colensojory.github.io
     */
 
+// Custom Images Sizes
+if (function_exists ('add_image_size')) {
+	add_image_size( 'mirva-admin-thumb', 80, 80, true);
+	add_image_size( 'mirva-gallery-thumb', 100, 100, true );
+	add_image_size( 'mirva-photo-feature', 500, 500, true );
+}
+
 // Init Custom Post Type - mirva_portfolio
 add_action ('init', 'mirva_portfolio_post_type');
 function mirva_portfolio_post_type () {
@@ -66,7 +73,7 @@ function mirva_manage_columns($column_name, $id) {
 	switch ($column_name) {
     case 'artworkimages':
         if( function_exists('the_post_thumbnail') )
-            echo the_post_thumbnail( 'admin-list-thumb' );
+            echo the_post_thumbnail( 'mirva-admin-thumb' );
         else
             echo __('Not supported in this theme', 'mirva' );
         break;
