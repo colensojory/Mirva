@@ -1,4 +1,4 @@
-**Mirva** *n.f* - Cornish
+**Mirva** *n.f* - Cornish  
 |mɪrvɐ|
 
 1. Gallery; Exhibition Room
