@@ -36,7 +36,7 @@ class mirva_latest_widget extends WP_Widget {
             $query = new WP_Query( $widget_args );
             while ($query->have_posts()) : $query->the_post();
                 $image_id = get_post_thumbnail_id(); 
-                $image_url = wp_get_attachment_image_src($image_id,'photo-feature', true);
+                $image_url = wp_get_attachment_image_src($image_id,'mirva-photo-feature', true);
                 echo '<figure>';
                     echo '<img src="'.  $image_url[0] .'">';
                 echo '</figure>';
